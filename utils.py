@@ -21,7 +21,7 @@ def train_with_reg_cv(trX, trY, vaX, vaY, teX=None, teY=None, penalty='l1',
         score = model.score(teX, teY)*100.
     else:
         score = model.score(vaX, vaY)*100.
-    return score, c, nnotzero
+    return score, c, nnotzero, model
 
 
 def load_sst(path):
@@ -31,7 +31,7 @@ def load_sst(path):
     return X, Y
 
 
-def sst_binary(data_dir='data/'):
+def sst_binary(data_dir='character_rnn/data/'):
     """
     Most standard models make use of a preprocessed/tokenized/lowercased version
     of Stanford Sentiment Treebank. Our model extracts features from a version

@@ -5,7 +5,7 @@ import tensorflow as tf
 from tqdm import tqdm
 from sklearn.externals import joblib
 
-from utils import HParams, preprocess, iter_data
+from character_rnn.utils import HParams, preprocess, iter_data
 
 global nloaded
 nloaded = 0
@@ -133,7 +133,7 @@ class Model(object):
             embd_wn=True,
         )
         global params
-        params = [np.load('model/%d.npy'%i) for i in range(15)]
+        params = [np.load('character_rnn/model/%d.npy'%i) for i in range(15)]
         params[2] = np.concatenate(params[2:6], axis=1)
         params[3:6] = []
 
